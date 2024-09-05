@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cti6p53nikr1e"]
+
+[ext_resource type="PackedScene" uid="uid://ceny2kkehuyu2" path="res://crosshair.tscn" id="1_7yrei"]
+[ext_resource type="PackedScene" uid="uid://cyeo7qwq5jlmd" path="res://player.tscn" id="2_410g3"]
+
+[sub_resource type="GDScript" id="GDScript_7u8s8"]
+script/source = "extends Node2D
+
+const crosshair: PackedScene = preload(\"res://crosshair.tscn\")
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	var instance = crosshair.instantiate()
+	
+"
+
+[node name="Main" type="Node2D"]
+position = Vector2(3, 4)
+script = SubResource("GDScript_7u8s8")
+
+[node name="Crosshair" parent="." instance=ExtResource("1_7yrei")]
+unique_name_in_owner = true
+
+[node name="Player" parent="." instance=ExtResource("2_410g3")]
+position = Vector2(536, 305)
