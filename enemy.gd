@@ -7,4 +7,3 @@ func _physics_process(delta):
 	var direction = position.direction_to(player.position)
 	velocity = direction * speed
 	move_and_collide(velocity * delta)
-aaw

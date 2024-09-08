@@ -17,3 +17,6 @@ shape = SubResource("RectangleShape2D_qnph5")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 texture = ExtResource("1_2tqwe")
+
+[node name="BulletSpawn" type="Node2D" parent="."]
+position = Vector2(11, 0)
