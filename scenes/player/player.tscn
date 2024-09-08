@@ -20,3 +20,5 @@ texture = ExtResource("1_2tqwe")
 
 [node name="BulletSpawn" type="Node2D" parent="."]
 position = Vector2(11, 0)
+
+[node name="Bullets" type="Node" parent="."]
