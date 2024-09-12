@@ -1,26 +1,29 @@
 [gd_scene load_steps=4 format=3 uid="uid://cyeo7qwq5jlmd"]
 
-[ext_resource type="Texture2D" uid="uid://btpoouocoh57x" path="res://assets/player.png" id="1_2tqwe"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_6kxmw"]
+[ext_resource type="Texture2D" uid="uid://dtitvrp7rj7lt" path="res://assets/PNG/playerShip3_blue.png" id="2_43dpx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnph5"]
-size = Vector2(12, 22)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bnbgi"]
+radius = 22.5
+height = 68.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
 scale = Vector2(2, 2)
 script = ExtResource("1_6kxmw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6, 0)
-shape = SubResource("RectangleShape2D_qnph5")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
-texture = ExtResource("1_2tqwe")
+texture = ExtResource("2_43dpx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bnbgi")
 
 [node name="BulletSpawn" type="Node2D" parent="."]
-position = Vector2(11, 0)
 
 [node name="BulletTimer" type="Timer" parent="."]
+wait_time = 0.1
 
 [connection signal="timeout" from="BulletTimer" to="." method="_on_bullet_timer_timeout"]
