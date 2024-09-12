@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://cti6p53nikr1e"]
 
-[ext_resource type="PackedScene" uid="uid://ceny2kkehuyu2" path="res://scenes/crosshair/crosshair.tscn" id="1_7yrei"]
-[ext_resource type="PackedScene" uid="uid://cyeo7qwq5jlmd" path="res://scenes/player/player.tscn" id="2_410g3"]
-[ext_resource type="PackedScene" uid="uid://4ret5j3ufo6y" path="res://scenes/enemy/enemy.tscn" id="3_ckmda"]
+[ext_resource type="PackedScene" uid="uid://ceny2kkehuyu2" path="res://crosshair/crosshair.tscn" id="1_7yrei"]
+[ext_resource type="PackedScene" uid="uid://cyeo7qwq5jlmd" path="res://player/player.tscn" id="2_410g3"]
+[ext_resource type="PackedScene" uid="uid://4ret5j3ufo6y" path="res://enemy/enemy.tscn" id="3_ckmda"]
 
 [sub_resource type="GDScript" id="GDScript_7u8s8"]
 script/source = "extends Node2D
 
-const crosshair: PackedScene = preload(\"res://scenes/crosshair/crosshair.tscn\")
+const crosshair: PackedScene = preload(\"res://crosshair/crosshair.tscn\")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var instance = crosshair.instantiate()
