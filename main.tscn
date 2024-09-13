@@ -8,14 +8,13 @@
 [sub_resource type="GDScript" id="GDScript_7u8s8"]
 script/source = "extends Node2D
 
-@onready var camera: Camera2D = $Player/Camera2D
+@onready var camera: Camera2D = $Camera2D
 @onready var player: CharacterBody2D = $Player
 @onready var crosshair: Sprite2D = %Crosshair
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.camera = camera
-	Globals.camera.objects = [crosshair, player]
 "
 
 [node name="Main" type="Node2D"]
@@ -29,14 +28,13 @@ texture = ExtResource("3_jv2im")
 region_enabled = true
 region_rect = Rect2(3000, -3000, 10000, 10000)
 
-[node name="Crosshair" parent="." instance=ExtResource("1_7yrei")]
+[node name="Crosshair" parent="." groups=["crosshair"] instance=ExtResource("1_7yrei")]
 unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(536, 305)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("4_154c0")
 
 [node name="Player" parent="." instance=ExtResource("2_410g3")]
 position = Vector2(536, 305)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-scale = Vector2(0.25, 0.25)
-script = ExtResource("4_154c0")
-dynamic_enabled = true
-dynamic_factor = 0.2

@@ -15,8 +15,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(_delta: float) -> void:
-	var vec = crosshair.position- position
-	rotation = vec.angle()
+	look_at(crosshair.position)
 	
 	# TODO: need to implement some kind of fire rate
 	if Input.is_mouse_button_pressed( 1 ):
