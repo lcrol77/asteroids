@@ -17,6 +17,6 @@ func lean_camera_towards_mouse_(delta:float) -> void:
 func match_player_position_() -> void:
 	position = player.position
 
-func _process(delta) -> void:
+func _physics_process(delta) -> void:
 	lean_camera_towards_mouse_(delta)
 	match_player_position_()
