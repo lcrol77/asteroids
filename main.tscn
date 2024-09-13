@@ -15,7 +15,7 @@ script/source = "extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.camera = camera
-	Globals.camera.objects =[crosshair,player]
+	Globals.camera.objects = [crosshair, player]
 "
 
 [node name="Main" type="Node2D"]
@@ -39,4 +39,4 @@ position = Vector2(536, 305)
 scale = Vector2(0.25, 0.25)
 script = ExtResource("4_154c0")
 dynamic_enabled = true
-dynamic_factor = 1.0
+dynamic_factor = 0.2

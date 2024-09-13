@@ -21,6 +21,8 @@ var objects = null
 @onready var normal_position = position
 @onready var normal_smoothing_speed = position_smoothing_speed
 
+@onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
+
 func _ready():
 	set_process(true)
 
@@ -38,20 +40,20 @@ func _process(delta):
 		
 		if objects_are_in_tree:
 			# Offset camera based on the ball position from the center
-			var center: Vector2 = get_viewport_rect().size / 2.0
+			var center: Vector2 = player.global_position
 			var average_pos: Vector2 = Vector2.ZERO
 			for x in objects:
 				average_pos += x.global_position
 			average_pos /= objects.size()
 			
-#			var dist_from_center = center.distance_to(average_pos)
 			var dist_from_center = (average_pos - center) / center
-			#drag_horizontal_offset = dist_from_center.x * dynamic_factor
-			#drag_vertical_offset = dist_from_center.y * dynamic_factor
+			dist_from_center = dist_from_center.clamp(Vector2(-1,-1),Vector2(1,1))
+			drag_horizontal_offset = dist_from_center.x 
+			drag_vertical_offset = dist_from_center.y
 			
 			# Zoom in or out camera depending on players position
 			var max_distance: float = 0.0
-			var distance = average_pos.distance_to(Vector2(center.x, get_viewport_rect().size.y))
+			var distance = average_pos.distance_to(Vector2(center.x, center.y))
 			
 #			print("Distance: ", distance)
 #			print("Max dist: ", max_dist)
